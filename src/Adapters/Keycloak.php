@@ -24,6 +24,7 @@
      * @property-read RefreshToken $refreshToken;
      * @property-read string       $loginUrl
      * @property-read string|null  $clientSecret
+     * @property-read string|null  $internalHost
      */
     class Keycloak
     {
@@ -34,6 +35,9 @@
 
         /** @var string|null */
         protected $clientSecret;
+
+        /** @var string|null */
+        protected $internalHost;
 
         public $redirectUri;
 
@@ -63,6 +67,10 @@
 
             if (isset($parameters["clientSecret"])) {
                 $this->clientSecret = $parameters["clientSecret"];
+            }
+
+            if (isset($parameters["internalHost"])) {
+                $this->internalHost = $parameters["internalHost"];
             }
         }
 
